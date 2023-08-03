@@ -1,5 +1,13 @@
+import { useContext } from 'react';
+import { GlobalContext } from '../context/GlobalState';
+
 export default function MovieCard({ movie }) {
   const imageUrl = 'https://image.tmdb.org/t/p/w200';
+
+  const { addMovieToWatchlist, watchlist } = useContext(GlobalContext);
+
+  const storedMovie = watchlist.find((obj) => obj.id === movie.id);
+
   return (
     <div className="result-card">
       <div className="poster-wrapper">
@@ -20,7 +28,14 @@ export default function MovieCard({ movie }) {
           </h4>
         </div>
         <div className="controls">
-          <button className="btn">Add to WatchList</button>
+          <button
+            className="btn"
+            onClick={() => addMovieToWatchlist(movie)}
+            // onClick={console.log('hello')}
+            disabled={storedMovie}
+          >
+            Add to WatchList
+          </button>
         </div>
       </div>
     </div>

@@ -11,7 +11,7 @@ export default function Add() {
     searchMovie();
   };
 
-  const { API_KEY } = import.meta.env;
+  // const { API_KEY } = import.meta.env;
   const Url = `https://api.themoviedb.org/3/search/movie?query=${query}&api_key=3aeaaa014d0a9a93c5525075579e4b08`;
 
   async function searchMovie() {
