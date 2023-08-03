@@ -9,22 +9,25 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "open-props": "^1.5.10",
+    "postcss-jit-props": "^1.0.13",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "open-props": "^1.5.10",
-    "postcss-jit-props": "^1.0.13"
+    "react-loader-spinner": "^5.3.4",
+    "redaxios": "^0.5.1",
+    "wouter": "^2.11.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.17",
     "@types/react-dom": "^18.2.7",
     "@vitejs/plugin-react": "^4.0.3",
+    "cssnano": "^6.0.1",
     "eslint": "^8.46.0",
     "eslint-config-prettier": "^8.9.0",
     "eslint-plugin-jsx-a11y": "^6.7.1",
     "eslint-plugin-react": "^7.33.1",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.3",
-    "cssnano": "^6.0.1",
     "postcss-preset-env": "^9.1.0",
     "sass": "^1.64.1",
     "vite": "^4.4.7"
