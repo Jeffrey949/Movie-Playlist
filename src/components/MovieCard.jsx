@@ -3,16 +3,15 @@ export default function MovieCard({ movie, type }) {
 
   return (
     <div className="movie-card">
-      <div className="overlay">
-        {movie.poster_path ? (
-          <img
-            src={`${imageUrl}${movie.poster_path}`}
-            alt={`${movie.title} Poster`}
-          />
-        ) : (
-          <div className="filler-poster"></div>
-        )}
-      </div>
+      <div className="overlay"></div>
+      {movie.poster_path ? (
+        <img
+          src={`${imageUrl}${movie.poster_path}`}
+          alt={`${movie.title} Poster`}
+        />
+      ) : (
+        <div className="filler-poster"></div>
+      )}
     </div>
   );
 }

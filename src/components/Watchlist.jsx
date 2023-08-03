@@ -10,9 +10,15 @@ export default function Watchlist() {
         <div className="header">
           <h1 className="heading">My Watchlist</h1>
         </div>
-        {watchlist.map((movie) => (
-          <MovieCard movie={movie} type={watchlist} />
-        ))}
+        {watchlist.length > 0 ? (
+          <div className="movie-grid">
+            {watchlist.map((movie) => (
+              <MovieCard movie={movie} type={watchlist} />
+            ))}
+          </div>
+        ) : (
+          <h2>No movies yet in your watchlist</h2>
+        )}
       </div>
     </div>
   );
