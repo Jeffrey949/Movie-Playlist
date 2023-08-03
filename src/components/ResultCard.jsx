@@ -4,9 +4,16 @@ import { GlobalContext } from '../context/GlobalState';
 export default function ResultCard({ movie }) {
   const imageUrl = 'https://image.tmdb.org/t/p/w200';
 
-  const { addMovieToWatchlist, watchlist } = useContext(GlobalContext);
+  const { addMovieToWatchlist, watchlist, watched, addMovieToWatched } =
+    useContext(GlobalContext);
 
   const storedMovie = watchlist.find((obj) => obj.id === movie.id);
+  const storedMovieWatchted = watched.find((obj) => obj.id === movie.id);
+  const watchlistDisabled = storedMovie
+    ? true
+    : storedMovieWatchted
+    ? true
+    : false;
 
   return (
     <div className="result-card">
@@ -32,9 +39,18 @@ export default function ResultCard({ movie }) {
             className="btn"
             onClick={() => addMovieToWatchlist(movie)}
             // onClick={console.log('hello')}
-            disabled={storedMovie}
+            disabled={watchlistDisabled}
           >
             Add to WatchList
+          </button>
+
+          <button
+            className="btn"
+            onClick={() => addMovieToWatched(movie)}
+            // onClick={console.log('hello')}
+            disabled={storedMovieWatchted}
+          >
+            Add to Watched
           </button>
         </div>
       </div>
