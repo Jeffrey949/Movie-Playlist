@@ -13,11 +13,13 @@ export default function Watchlist() {
         {watchlist.length > 0 ? (
           <div className="movie-grid">
             {watchlist.map((movie) => (
-              <MovieCard movie={movie} type={watchlist} />
+              <li key={movie.id}>
+                <MovieCard movie={movie} type="watchlist" />
+              </li>
             ))}
           </div>
         ) : (
-          <h2>No movies yet in your watchlist</h2>
+          <h2 className="no-movies">No movies yet in your watchlist</h2>
         )}
       </div>
     </div>

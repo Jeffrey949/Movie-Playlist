@@ -1,3 +1,5 @@
+import MovieControls from './MovieControls';
+
 export default function MovieCard({ movie, type }) {
   const imageUrl = 'https://image.tmdb.org/t/p/w200';
 
@@ -12,6 +14,7 @@ export default function MovieCard({ movie, type }) {
       ) : (
         <div className="filler-poster"></div>
       )}
+      <MovieControls type={type} movie={movie}></MovieControls>
     </div>
   );
 }

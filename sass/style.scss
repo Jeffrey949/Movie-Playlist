@@ -238,6 +238,10 @@ header .nav-links li:last-child {
   grid-gap: 30px;
 }
 
+.movie-grid li {
+  list-style: none;
+}
+
 @media (min-width: 992px) {
   .movie-grid {
     grid-template-columns: repeat(5, 1fr);
@@ -292,6 +296,7 @@ header .nav-links li:last-child {
 
 .ctrl-btn {
   color: #fefefe;
+  // color: red !important;
   background-color: transparent;
   border: none;
   transition: all 0.3s ease;
