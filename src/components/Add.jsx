@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import axios from 'redaxios';
-import MovieCard from './MovieCard';
+import ResultCard from './ResultCard';
 
 export default function Add() {
   const [query, setQuery] = useState('');
@@ -42,7 +42,7 @@ export default function Add() {
             <ul className="results">
               {movies.map((movie) => (
                 <li key={movie.id}>
-                  <MovieCard movie={movie} />
+                  <ResultCard movie={movie} />
                 </li>
               ))}
             </ul>
