@@ -6,3 +6,21 @@ $large-min: rem(1000);
 $small: 'width <= #{$small-max}';
 $medium: '#{$small-max} < width < #{$large-min}';
 $large: 'width >= #{$large-min}';
+
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
+}

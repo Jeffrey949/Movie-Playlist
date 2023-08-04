@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react';
 
 // https://dmitripavlutin.com/controlled-inputs-using-react-hooks/
 export function useDebouncedValue(value, wait) {
