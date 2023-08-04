@@ -1,30 +1,34 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import axios from 'redaxios';
 import ResultCard from './ResultCard';
+import { useDebouncedValue } from '../hooks/useDebouncedValue';
 
 export default function Add() {
   const [query, setQuery] = useState('');
   const [movies, setMovies] = useState([]);
-
-  const search = (e) => {
-    setQuery(e.target.value);
-    searchMovie();
-  };
+  const debouncedQuery = useDebouncedValue(query, 300);
 
   // const { API_KEY } = import.meta.env;
   const Url = `https://api.themoviedb.org/3/search/movie?query=${query}&api_key=3aeaaa014d0a9a93c5525075579e4b08`;
 
-  async function searchMovie() {
-    try {
-      const response = await axios.get(Url);
-      const data = response.data;
-      console.log(data.results);
-      setMovies(data.results);
-    } catch (error) {
-      console.log(error);
+  useEffect(() => {
+    if (debouncedQuery.length < 2) {
       setMovies([]);
+      return;
     }
-  }
+    async function searchMovie() {
+      try {
+        const response = await axios.get(Url);
+        const data = response.data;
+        console.log(data.results);
+        setMovies(data.results);
+      } catch (error) {
+        console.log(error);
+        setMovies([]);
+      }
+    }
+    searchMovie();
+  }, [debouncedQuery]);
 
   return (
     <div className="add-page">
@@ -32,10 +36,10 @@ export default function Add() {
         <div className="add-content">
           <div className="input-wrapper">
             <input
-              type="text"
+              type="search"
               placeholder="Search for Movies"
               value={query}
-              onChange={search}
+              onChange={(e) => setQuery(e.target.value)}
             />
           </div>
           {movies.length > 0 && (
