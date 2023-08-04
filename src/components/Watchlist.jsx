@@ -1,9 +1,12 @@
 import { useContext } from 'react';
 import { GlobalContext } from '../context/GlobalState';
 import MovieCard from './MovieCard';
+import { useDocumentTitle } from '../hooks/useDocumentTitle';
 
 export default function Watchlist() {
   const { watchlist } = useContext(GlobalContext);
+  useDocumentTitle('watchlist');
+
   return (
     <div className="movie-page">
       <div className="container">

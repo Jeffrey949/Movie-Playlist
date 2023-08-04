@@ -2,11 +2,13 @@ import { useEffect, useState } from 'react';
 import axios from 'redaxios';
 import ResultCard from './ResultCard';
 import { useDebouncedValue } from '../hooks/useDebouncedValue';
+import { useDocumentTitle } from '../hooks/useDocumentTitle';
 
 export default function Add() {
   const [query, setQuery] = useState('');
   const [movies, setMovies] = useState([]);
   const debouncedQuery = useDebouncedValue(query, 300);
+  useDocumentTitle('Add Movie');
 
   // const { API_KEY } = import.meta.env;
   const Url = `https://api.themoviedb.org/3/search/movie?query=${query}&api_key=3aeaaa014d0a9a93c5525075579e4b08`;
@@ -20,10 +22,8 @@ export default function Add() {
       try {
         const response = await axios.get(Url);
         const data = response.data;
-        console.log(data.results);
         setMovies(data.results);
       } catch (error) {
-        console.log(error);
         setMovies([]);
       }
     }

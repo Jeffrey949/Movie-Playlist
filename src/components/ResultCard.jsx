@@ -38,7 +38,6 @@ export default function ResultCard({ movie }) {
           <button
             className="btn"
             onClick={() => addMovieToWatchlist(movie)}
-            // onClick={console.log('hello')}
             disabled={watchlistDisabled}
           >
             Add to WatchList
@@ -47,7 +46,6 @@ export default function ResultCard({ movie }) {
           <button
             className="btn"
             onClick={() => addMovieToWatched(movie)}
-            // onClick={console.log('hello')}
             disabled={storedMovieWatchted}
           >
             Add to Watched
